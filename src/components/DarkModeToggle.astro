@@ -1,0 +1,37 @@
+---
+---
+
+<button
+  id="dark-mode-toggle"
+  class="fixed bottom-5 right-5 bg-gray-200 dark:bg-cyan-500 text-cyan-800 dark:text-white p-2 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
+  aria-label="Toggle dark mode"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+  </svg>
+</button>
+
+<script>
+  const darkModeToggle = document.getElementById('dark-mode-toggle');
+  
+  function setDarkMode(isDark) {
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('darkMode', 'false');
+    }
+  }
+
+  // Check initial dark mode preference
+  if (localStorage.getItem('darkMode') === 'true' || 
+      (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    setDarkMode(true);
+  }
+
+  darkModeToggle.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.toggle('dark');
+    setDarkMode(isDark);
+  });
+</script>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import DocsLayout from '../../layouts/DocsLayout.astro';
+
+const allDocs = await getCollection('docs');
+const firstDoc = allDocs[0]; // Mengambil dokumen pertama sebagai halaman default
+
+const { Content } = await firstDoc.render();
+---
+
+<DocsLayout frontmatter={firstDoc.data} slug={firstDoc.slug}>
+  <Content />
+</DocsLayout>

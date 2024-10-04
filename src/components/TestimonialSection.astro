@@ -1,0 +1,106 @@
+---
+// TestimonialSection.astro
+import { ChevronDown } from 'lucide-react'; // Import the ChevronDown icon from 'lucide-react'
+
+const testimonials = [
+  {
+    name: "Ryan Florence",
+    role: "Remix & React Training",
+    content: "I feel like an idiot for not using Tailwind CSS until now.",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    name: "Debbie O'Brien",
+    role: "Senior Program Manager at Microsoft",
+    content: "Have been working with CSS for over ten years and Tailwind just makes my life easier. It is still CSS and you use flex, grid, etc. but just quicker to write and maintain.",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    name: "Kent C. Dodds",
+    role: "Developer and Educator",
+    content: "Skip to the end. Use @tailwindcss.",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    name: "Guillermo Rauch",
+    role: "Vercel",
+    content: "If I had to recommend a way of getting into programming today, it would be HTML + CSS with Tailwind CSS.",
+    avatar: "/api/placeholder/40/40"
+  },
+  {
+    name: "Shruti Balasa",
+    role: "Full Stack Web Developer & Tech Educator",
+    content: "I was bad at front-end until I discovered Tailwind CSS. I have learnt a lot more about design and CSS itself after I started working with Tailwind. Creating web pages is 5x faster now.",
+    avatar: "/api/placeholder/40/40"
+  },
+  // Add more testimonials as needed
+];
+
+const visibleTestimonials = testimonials.slice(0, 3);
+---
+
+<div class="bg-gray-900 py-16 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-white mb-12">What people are saying</h2>
+    <div class="grid gap-8 lg:grid-cols-3">
+      {visibleTestimonials.map((testimonial) => (
+        <div class="bg-gray-800 rounded-lg p-6 mb-4">
+          <div class="flex items-center mb-4">
+            <img src={testimonial.avatar} alt={testimonial.name} class="w-10 h-10 rounded-full mr-4" />
+            <div>
+              <h3 class="text-white font-semibold">{testimonial.name}</h3>
+              <p class="text-gray-400 text-sm">{testimonial.role}</p>
+            </div>
+          </div>
+          <p class="text-gray-300">{testimonial.content}</p>
+        </div>
+      ))}
+    </div>
+    <div class="relative mt-12">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-gray-700"></div>
+      </div>
+      <div class="relative flex justify-center">
+        <button
+          type="button"
+          id="show-more-btn"
+          class="inline-flex items-center shadow-sm px-4 py-1.5 border border-gray-700 text-sm font-medium rounded-full text-gray-300 bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        >
+          <ChevronDown class="h-5 w-5 mr-2 text-gray-400" aria-hidden="true" />
+          Show more...
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const showMoreBtn = document.getElementById('show-more-btn');
+  const testimonialGrid = document.querySelector('.grid');
+
+  showMoreBtn.addEventListener('click', () => {
+    // Fetch and append more testimonials
+    // This is where you'd typically make an API call or load more data
+    const newTestimonials = [
+      // Add the remaining testimonials here
+    ];
+
+    newTestimonials.forEach(testimonial => {
+      const testimonialEl = document.createElement('div');
+      testimonialEl.className = 'bg-gray-800 rounded-lg p-6 mb-4';
+      testimonialEl.innerHTML = `
+        <div class="flex items-center mb-4">
+          <img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-10 h-10 rounded-full mr-4" />
+          <div>
+            <h3 class="text-white font-semibold">${testimonial.name}</h3>
+            <p class="text-gray-400 text-sm">${testimonial.role}</p>
+          </div>
+        </div>
+        <p class="text-gray-300">${testimonial.content}</p>
+      `;
+      testimonialGrid.appendChild(testimonialEl);
+    });
+
+    showMoreBtn.style.display = 'none';
+  });
+</script>

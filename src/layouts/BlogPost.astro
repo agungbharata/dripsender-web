@@ -1,0 +1,21 @@
+---
+import Layout from './Layout.astro';
+import Navbar from '../components/Navbar.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+
+
+<Layout title={frontmatter.title}>
+  <header class="bg-gray-800 text-white">
+    <Navbar />
+</header>
+
+  <article class="prose lg:prose-xl mx-auto">
+    <h1>{frontmatter.title}</h1>
+    <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+    <slot />
+  </article>
+
+</Layout>

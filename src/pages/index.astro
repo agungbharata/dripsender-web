@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Feature from '../components/Feature.astro';
+import FeatureListBuilding from '../components/FeatureListBuilding.astro';
+import FeatureCampaign from '../components/FeatureCampaign.astro';
+import FeatureAutomation from '../components/FeatureAutomation.astro';
+import FeatureChatGPT from '../components/FeatureChatGPT.astro';
+import CTA from '../components/CTA.astro';
+import Testimonial from '../components/Testimonial';
+import TestimonialDark from '../components/TestimonialDark';
+import HeroDark from '../components/HeroDark.astro';
+import TableFeature from '../components/TableFeature.astro';
+
+const posts = await getCollection('blog');
+posts.sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+---
+
+<Layout title="Homepage">
+  <HeroDark />
+  <Feature />
+  <FeatureListBuilding />
+  <FeatureCampaign />
+  <FeatureAutomation />
+  <FeatureChatGPT />
+  <CTA />
+  <TableFeature />
+  <!-- <TestimonialDark client:load /> -->
+</Layout>

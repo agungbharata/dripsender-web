@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import Navbar from '../../components/Navbar.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection('blog');
+  posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(posts, { pageSize: 6 });
+}
+
+const { page } = Astro.props;
+
+const allPosts = await getCollection('blog');
+const searchData = allPosts.map(post => ({
+  title: post.data.title,
+  description: post.data.description,
+  slug: post.slug,
+  pubDate: post.data.pubDate.toISOString().split('T')[0],
+  author: post.data.author
+}));
+---
+
+<Layout title="Blog">
+    <header class="bg-gray-800 text-white">
+        <Navbar />
+    </header>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Blog Posts</h1>
+    
+    <!-- Search input -->
+    <div class="mb-8">
+      <input 
+        type="text" 
+        id="search-input" 
+        placeholder="Search blog posts..." 
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+      >
+    </div>
+
+    <!-- Search results -->
+    <div id="search-results" class="hidden mb-8">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Search Results</h2>
+      <ul id="search-results-list"></ul>
+    </div>
+
+    <!-- Blog posts grid -->
+    <div id="blog-posts-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {page.data.map((post) => (
+        <article class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+          <img 
+            src={post.data.thumbnail || 'https://via.placeholder.com/400x200'} 
+            alt={post.data.title}
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-6">
+            <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <a href={`/blog/${post.slug}`} class="hover:underline">
+                {post.data.title}
+              </a>
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+              {post.data.description}
+            </p>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-500 dark:text-gray-400">
+                {new Date(post.data.pubDate).toLocaleDateString()}
+              </span>
+              <a 
+                href={`/blog/${post.slug}`} 
+                class="text-cyan-600 dark:text-cyan-400 hover:underline"
+              >
+                Read more
+              </a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Pagination -->
+    <nav class="mt-8 flex justify-center items-center space-x-4">
+      {page.url.prev ? (
+        <a href={page.url.prev} class="px-3 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
+          &larr; Previous
+        </a>
+      ) : (
+        <span class="px-3 py-2 bg-gray-300 text-gray-500 rounded-md cursor-not-allowed">
+          &larr; Previous
+        </span>
+      )}
+      <span class="text-gray-800 dark:text-cyan-200">Page {page.currentPage} of {page.lastPage}</span>
+      {page.url.next ? (
+        <a href={page.url.next} class="px-3 py-2 bg-cyan-500 text-white rounded-md hover:bg-cyan-600">
+          Next &rarr;
+        </a>
+      ) : (
+        <span class="px-3 py-2 bg-gray-300 text-gray-500 rounded-md cursor-not-allowed">
+          Next &rarr;
+        </span>
+      )}
+    </nav>
+  </div>
+
+  <script define:vars={{ searchData }}>
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    const searchResultsList = document.getElementById('search-results-list');
+    const blogPostsGrid = document.getElementById('blog-posts-grid');
+    const paginationNav = document.querySelector('nav');
+
+    function performSearch(query) {
+      const results = searchData.filter(item => 
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.description.toLowerCase().includes(query.toLowerCase())
+      );
+
+      searchResultsList.innerHTML = '';
+
+      if (results.length > 0) {
+        results.forEach(result => {
+          const li = document.createElement('li');
+          li.className = 'mb-4 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden';
+          li.innerHTML = `
+            <div class="p-4">
+              <a href="/blog/${result.slug}" class="text-lg font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">
+                ${result.title}
+              </a>
+              <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">${result.description}</p>
+              <div class="flex justify-between items-center mt-2">
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.pubDate}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.author}</span>
+              </div>
+            </div>
+          `;
+          searchResultsList.appendChild(li);
+        });
+        searchResults.classList.remove('hidden');
+        blogPostsGrid.classList.add('hidden');
+        paginationNav.classList.add('hidden');
+      } else {
+        searchResults.classList.add('hidden');
+        blogPostsGrid.classList.remove('hidden');
+        paginationNav.classList.remove('hidden');
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (query.length > 2) {
+        performSearch(query);
+      } else {
+        searchResults.classList.add('hidden');
+        blogPostsGrid.classList.remove('hidden');
+        paginationNav.classList.remove('hidden');
+      }
+    });
+  </script>
+</Layout>

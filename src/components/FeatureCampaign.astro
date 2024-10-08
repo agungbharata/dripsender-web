@@ -1,18 +1,16 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
-import ListBuildingImg from '../images/ds3.jpg';
+import ListBuildingImg from "../assets/img/ds3.jpg";
 ---
 
-<div class="overflow-hidden bg-white dark:bg-gray-900 py-12 sm:pt-28 sm:pb-12">
+<div class="py-12 overflow-hidden bg-white dark:bg-gray-900 sm:pt-28 sm:pb-12">
   <div class="mx-auto max-w-7xl md:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-x-8 gap-y-9 sm:gap-y-20 lg:grid-cols-2 lg:items-center">
       <!-- Kolom 1 -->
-      <div class="sm:px-6 lg:px-0 sm:m-0 m-4 order-1 lg:order-2">
-        <div
-          class="relative isolate overflow-hidden bg-cyan-500 shadow-xl sm:mx-auto sm:max-w-2xl rounded-3xl lg:mx-0 lg:max-w-none"
-        >
-          <div class="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+      <div class="order-1 m-4 sm:px-6 lg:px-0 sm:m-0 lg:order-2">
+        <div class="relative overflow-hidden shadow-xl isolate bg-cyan-500 sm:mx-auto sm:max-w-2xl rounded-3xl lg:mx-0 lg:max-w-none">
+          <div class="max-w-2xl mx-auto sm:mx-0 sm:max-w-none">
             <Image
               src={ListBuildingImg}
               alt="Product screenshot"
@@ -25,20 +23,16 @@ import ListBuildingImg from '../images/ds3.jpg';
       </div>
 
       <!-- Kolom 2 -->
-      <div class="px-6 lg:px-0 lg:pl-0 lg:pt-4 order-2 lg:order-1">
-        <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg space-y-4">
-          <h2 class="text-base font-semibold leading-7 text-cyan-600 dark:text-cyan-100 ">#Database</h2>
-          <p class="mt-2 text-2xl font-bold font-sora tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl">
-            Evergreen Campaign
-          </p>
-          <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-50">
-            Bangun database pelanggan Anda sendiri menggunakan fitur Dripsender
-          </p>
-          <dl class="mt-10 max-w-xl space-y-4 text-base leading-7 text-gray-600 dark:text-gray-50 lg:max-w-none">
+      <div class="order-2 px-6 lg:px-0 lg:pl-0 lg:pt-4 lg:order-1">
+        <div class="max-w-2xl mx-auto space-y-4 lg:mx-0 lg:max-w-lg">
+          <h2 class="text-base font-semibold leading-7 text-cyan-600 dark:text-cyan-100">#Database</h2>
+          <p class="mt-2 text-2xl font-bold tracking-tight text-gray-900 font-sora dark:text-gray-100 sm:text-4xl">Evergreen Campaign</p>
+          <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-50">Bangun database pelanggan Anda sendiri menggunakan fitur Dripsender</p>
+          <dl class="max-w-xl mt-10 space-y-4 text-base leading-7 text-gray-600 dark:text-gray-50 lg:max-w-none">
             <div class="relative pl-12">
-              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100  ">
+              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100">
                 <svg
-                  class="absolute left-1 top-1 h-8 w-8 text-cyan-500 dark:text-cyan-100"
+                  class="absolute w-8 h-8 left-1 top-1 text-cyan-500 dark:text-cyan-100"
                   viewBox="0 0 24 24"
                   fill="transparent"
                   stroke="currentColor"
@@ -51,14 +45,12 @@ import ListBuildingImg from '../images/ds3.jpg';
                 </svg>
                 Grabbing Contact ->
               </dt>
-              <dd class="inline">
-                Ambil semua data kontak member grup yang Anda ikuti dengan sekali klik
-              </dd>
+              <dd class="inline">Ambil semua data kontak member grup yang Anda ikuti dengan sekali klik</dd>
             </div>
             <div class="relative pl-12">
-              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100  ">
+              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100">
                 <svg
-                  class="absolute left-1 top-1 h-8 w-8 text-cyan-500 dark:text-cyan-100"
+                  class="absolute w-8 h-8 left-1 top-1 text-cyan-500 dark:text-cyan-100"
                   viewBox="0 0 24 24"
                   fill="transparent"
                   stroke="currentColor"
@@ -71,14 +63,12 @@ import ListBuildingImg from '../images/ds3.jpg';
                 </svg>
                 Submission ->
               </dt>
-              <dd class="inline">
-                Gunakan Google Form, Elementor, Ninja Form dan Webhook untuk mengumpulkan database
-              </dd>
+              <dd class="inline">Gunakan Google Form, Elementor, Ninja Form dan Webhook untuk mengumpulkan database</dd>
             </div>
             <div class="relative pl-12">
-              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100  ">
+              <dt class="inline font-semibold text-gray-900 dark:text-cyan-100">
                 <svg
-                  class="absolute left-1 top-1 h-8 w-8 text-cyan-500 dark:text-cyan-100"
+                  class="absolute w-8 h-8 left-1 top-1 text-cyan-500 dark:text-cyan-100"
                   viewBox="0 0 24 24"
                   fill="transparent"
                   stroke="currentColor"
@@ -91,9 +81,7 @@ import ListBuildingImg from '../images/ds3.jpg';
                 </svg>
                 Funneling Bot ->
               </dt>
-              <dd class="inline">
-                Buat bot auto subscribe dan unsubscribe untuk menyaring pelanggan potensial
-              </dd>
+              <dd class="inline">Buat bot auto subscribe dan unsubscribe untuk menyaring pelanggan potensial</dd>
             </div>
           </dl>
         </div>

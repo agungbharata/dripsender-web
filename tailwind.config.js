@@ -9,7 +9,8 @@ module.exports = {
         sora: ["Sora", ...defaultTheme.fontFamily.sans],
       },
       lineHeight: {
-        "custom-3em": "3em", // Custom line-height value
+        "custom-2em": "2em",
+        "custom-1em": "1.5em",
       },
     },
   },

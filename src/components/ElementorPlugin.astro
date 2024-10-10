@@ -1,0 +1,156 @@
+---
+---
+
+<h1 class="text-3xl font-bold mb-6 text-gray-800">Dokumentasi Dripsender Elementor Plugin</h1>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Pengenalan</h2>
+<p class="mb-4 text-gray-600">Dripsender Elementor Plugin adalah ekstensi kustom untuk Elementor yang memungkinkan Anda membuat formulir interaktif dengan mudah dan mengirimkan data ke Dripsender melalui webhook. Plugin ini terdiri dari dua widget utama: Dripsender Input dan Dripsender Button Action.</p>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Instalasi</h2>
+<ol class="list-decimal pl-6 mb-4 text-gray-600">
+    <li>Unduh file zip plugin Dripsender Elementor.</li>
+    <li>Di dashboard WordPress Anda, navigasikan ke Plugins > Add New > Upload Plugin.</li>
+    <li>Pilih file zip yang telah Anda unduh dan klik "Install Now".</li>
+    <li>Setelah instalasi selesai, klik "Activate Plugin".</li>
+</ol>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Penggunaan</h2>
+
+<h3 class="text-xl font-semibold mb-3 text-gray-700">Menambahkan Widget</h3>
+<p class="mb-2 text-gray-600">Untuk menambahkan widget Dripsender ke halaman Anda:</p>
+<ol class="list-decimal pl-6 mb-4 text-gray-600">
+    <li>Edit halaman dengan Elementor.</li>
+    <li>Cari "dripsender" di panel widget.</li>
+    <li>Anda akan melihat dua widget: Dripsender Input dan Dripsender Button Action.</li>
+    <li>Drag and drop widget yang diinginkan ke area edit Anda.</li>
+</ol>
+
+<img src="/images/plugins/image3.png" alt="Widget Dripsender di panel Elementor" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+
+<h3 class="text-xl font-semibold mb-3 text-gray-700">Mengkonfigurasi Dripsender Input</h3>
+<p class="mb-2 text-gray-600">Setelah menambahkan widget Dripsender Input:</p>
+<ol class="list-decimal pl-6 mb-4 text-gray-600">
+    <li>Klik widget untuk membuka panel pengaturan.</li>
+    <li>Di tab Content, Anda dapat mengatur:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Input Type (Text, Textarea, atau Select)</li>
+            <li>Label</li>
+            <li>Placeholder</li>
+            <li>Required (Ya/Tidak)</li>
+        </ul>
+    </li>
+    <li>Di tab Style, Anda dapat menyesuaikan:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Label Size</li>
+            <li>Label Color</li>
+            <li>Input Color</li>
+            <li>Input Background Color</li>
+            <li>Focus Border Color</li>
+        </ul>
+    </li>
+</ol>
+
+
+<img src="/images/plugins/image2.png" alt="Pengaturan configurasi Dripsender Input" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+<img src="/images/plugins/image12.png" alt="Pengaturan gaya Dripsender Input" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+
+<h3 class="text-xl font-semibold mb-3 text-gray-700">Mengkonfigurasi Dripsender Button Action</h3>
+<p class="mb-2 text-gray-600">Untuk widget Dripsender Button Action:</p>
+<ol class="list-decimal pl-6 mb-4 text-gray-600">
+    <li>Klik widget untuk membuka panel pengaturan.</li>
+    <li>Di tab Content, atur:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Button Text</li>
+            <li>Webhook URL (URL Dripsender Anda)</li>
+            <li>Success Modal Title dan Message</li>
+            <li>Error Modal Title dan Message</li>
+        </ul>
+    </li>
+    <li>Di tab Style, sesuaikan:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Button Alignment</li>
+            <li>Text Color</li>
+            <li>Background Color</li>
+        </ul>
+    </li>
+    <li>Jika ingin menggunakan Facebook Pixel, aktifkan di tab Facebook Pixel dan isi detailnya.</li>
+</ol>
+
+
+<img src="/images/plugins/image1.png" alt="Pengaturan gaya Dripsender Button Action" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+<img src="/images/plugins/image21.png" alt="Pengaturan gaya Dripsender Button Action" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Contoh Penggunaan</h2>
+<p class="mb-4 text-gray-600">Berikut adalah contoh penggunaan Dripsender Elementor Plugin dengan fokus pada input nama dan nomor telepon:</p>
+
+<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+    <strong class="font-bold">Penting:</strong> 
+    <ul class="list-disc pl-6 mt-2">
+        <li>Input pertama akan selalu dianggap sebagai "Nama".</li>
+        <li>Input kedua akan selalu dianggap sebagai "Nomor Telepon" atau "WhatsApp".</li>
+        <li>Jika label input tidak sesuai dengan ketentuan di atas, sistem akan tetap memperlakukan input pertama sebagai nama dan input kedua sebagai nomor telepon.</li>
+        <li>Input ketiga dan seterusnya dapat digunakan untuk informasi tambahan sesuai kebutuhan Anda.</li>
+    </ul>
+</div>
+
+<ol class="list-decimal pl-6 mb-4 text-gray-600">
+    <li>Tambahkan widget Dripsender Input pertama:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Atur input type sebagai "Text"</li>
+            <li>Set label sebagai "Nama"</li>
+            <li>Aktifkan opsi "Required"</li>
+        </ul>
+    </li>
+    <li>Tambahkan widget Dripsender Input kedua:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Atur input type sebagai "Text"</li>
+            <li>Set label sebagai "Nomor Telepon/WhatsApp"</li>
+            <li>Aktifkan opsi "Required"</li>
+        </ul>
+    </li>
+    <li>Tambahkan widget Dripsender Input ketiga (opsional):
+        <ul class="list-disc pl-6 mt-2">
+            <li>Atur input type sesuai kebutuhan (misalnya "Text" untuk email)</li>
+            <li>Set label sesuai kebutuhan (misalnya "Email")</li>
+        </ul>
+    </li>
+    <li>Tambahkan widget Dripsender Button Action:
+        <ul class="list-disc pl-6 mt-2">
+            <li>Atur teks tombol menjadi "Submit"</li>
+            <li>Masukkan Webhook URL Dripsender Anda</li>
+            <li>Sesuaikan pesan sukses dan error sesuai kebutuhan</li>
+        </ul>
+    </li>
+    <li>Sesuaikan gaya masing-masing widget sesuai kebutuhan.</li>
+    <li>Publish atau update halaman Anda.</li>
+</ol>
+
+
+<img src="/images/plugins/contoh.png" alt="Pengaturan gaya Dripsender Button Action" class="max-w-full h-auto rounded-lg shadow-md mb-4">
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Perilaku Sistem</h2>
+<p class="mb-2 text-gray-600">Sistem Dripsender Elementor Plugin memiliki perilaku khusus terkait dengan dua input pertama:</p>
+<ul class="list-disc pl-6 mb-4 text-gray-600">
+    <li>Input pertama akan selalu dikirim sebagai parameter "name" ke webhook, terlepas dari label yang Anda berikan.</li>
+    <li>Input kedua akan selalu dikirim sebagai parameter "phone" ke webhook, terlepas dari label yang Anda berikan.</li>
+    <li>Input ketiga dan seterusnya akan dikirim dengan nama parameter sesuai dengan label yang Anda berikan (dalam format lowercase dan underscore untuk spasi : "alamat_email" untuk "Alamat Email").</li>
+</ul>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Troubleshooting</h2>
+<p class="mb-2 text-gray-600">Jika Anda mengalami masalah dengan plugin:</p>
+<ul class="list-disc pl-6 mb-4 text-gray-600">
+    <li>Pastikan Elementor terinstal dan diaktifkan.</li>
+    <li>Verifikasi bahwa Webhook URL yang Anda gunakan valid dan aktif.</li>
+    <li>Periksa console browser untuk error JavaScript.</li>
+    <li>Pastikan semua field yang diperlukan telah diisi sebelum mengirimkan form.</li>
+    <li>Jika data tidak terkirim dengan benar, periksa urutan input Anda dan pastikan dua input pertama adalah untuk nama dan nomor telepon.</li>
+</ul>
+
+<h2 class="text-2xl font-semibold mb-4 text-gray-700">Dukungan</h2>
+<p class="mb-4 text-gray-600">Untuk dukungan lebih lanjut atau pertanyaan, silakan hubungi kami di 
+    
+    <a href="https://wa.me/6281373887727" class="text-blue-500 hover:text-blue-600 transition duration-300 ease-in-out">Abu Azka</a>
+    
+</p>
+
+<a href="/downloads/dripsender-elementor-1-1-0.zip" class="inline-block px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition duration-300 ease-in-out">Download Dripsender Elementor Plugin</a>

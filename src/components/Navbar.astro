@@ -10,29 +10,57 @@
           <!-- Website Logo -->
           <a href="/" class="flex items-center px-2 py-4">
             <img src="/logomark-ds.svg" alt="Logo" class="w-10 h-10 mr-2" />
-            <span class="text-xl font-semibold font-sora text-gray-50 sm:text-2xl">Dripsender</span>
+            <span
+              class="text-xl font-semibold font-sora text-gray-50 sm:text-2xl"
+              >Dripsender</span
+            >
           </a>
         </div>
 
         <!-- Primary Navbar items -->
         <div class="items-center hidden gap-8 space-x-1 md:flex">
-          <a href="/" class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400">Home</a>
-          <a href="/pricing" class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
+          <a
+            href="/"
+            class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
+            >Home</a
+          >
+          <a
+            href="/pricing"
+            class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
             >Pricing</a
           >
-          <a href="/blog/1" class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400">Blog</a
+          <a
+            href="/blog/1"
+            class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
+            >Blog</a
           >
-          <a href="/docs" class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400">Docs</a>
+          <a
+            href="/docs"
+            class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
+            >Docs</a
+          >
+          <a
+            href="/plugins"
+            class="px-2 py-4 font-semibold text-gray-200 transition duration-300 hover:text-cyan-500 dark:hover:text-cyan-400"
+            >Plugins</a
+          >
         </div>
 
         <!-- Secondary Navbar items -->
         <div class="items-center hidden space-x-3 md:flex">
-          <a href="/signup" class="py-2 px-3.5 text-base text-white bg-cyan-500 rounded hover:bg-cyan-400 transition duration-300">Login -> </a>
+          <a
+            href="/signup"
+            class="py-2 px-3.5 text-base text-white bg-cyan-500 rounded hover:bg-cyan-400 transition duration-300"
+            >Login ->
+          </a>
         </div>
       </div>
       <!-- Mobile menu button -->
       <div class="flex items-center md:hidden">
-        <button class="outline-none mobile-menu-button" @click="isOpen = !isOpen">
+        <button
+          class="outline-none mobile-menu-button"
+          @click="isOpen = !isOpen"
+        >
           <svg
             class="w-6 h-6 text-gray-50 hover:text-cyan-500"
             x-show="!isOpen"
@@ -53,7 +81,11 @@
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
       </div>
@@ -70,10 +102,30 @@
     x-transition:leave-start="opacity-100 scale-100"
     x-transition:leave-end="opacity-0 scale-95"
   >
-    <a href="/" class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white">Home</a>
-    <a href="/pricing" class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white">Pricing</a>
-    <a href="/blog/1" class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white">Blog</a>
-    <a href="/docs" class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white">Docs</a>
-    <a href="/signup" class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white">Sign Up</a>
+    <a
+      href="/"
+      class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white"
+      >Home</a
+    >
+    <a
+      href="/pricing"
+      class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white"
+      >Pricing</a
+    >
+    <a
+      href="/blog/1"
+      class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white"
+      >Blog</a
+    >
+    <a
+      href="/docs"
+      class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white"
+      >Docs</a
+    >
+    <a
+      href="/signup"
+      class="block px-4 py-2 text-sm transition duration-300 text-gray-50 hover:bg-cyan-500 hover:text-white"
+      >Sign Up</a
+    >
   </div>
 </nav>

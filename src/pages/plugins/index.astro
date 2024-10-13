@@ -1,15 +1,14 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Navbar from '../../components/Navbar.astro';
-import ElementorPlugin from '../../components/ElementorPlugin.astro';
-
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+import ElementorPlugin from "../../components/ElementorPlugin.astro";
 ---
 
 <Layout title="Plugins">
-    <header class="bg-gray-800 text-white">
-        <Navbar />
-    </header>
-    <main class="p-10">
-        <ElementorPlugin/>
-    </main>
+  <header class="text-white bg-gray-800">
+    <Navbar />
+  </header>
+  <main class="p-10 mx-auto max-w-7xl">
+    <ElementorPlugin />
+  </main>
 </Layout>

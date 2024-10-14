@@ -1,11 +1,10 @@
 ---
-import Layout from './Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import { getCollection } from 'astro:content';
-
+import Layout from "./Layout.astro";
+import Navbar from "../components/Navbar.astro";
+import { getCollection } from "astro:content";
 
 const { frontmatter, slug } = Astro.props;
-const allDocs = await getCollection('docs');
+const allDocs = await getCollection("docs");
 
 // Group docs by category
 const docsByCategory = allDocs.reduce((acc, doc) => {
@@ -19,8 +18,8 @@ const docsByCategory = allDocs.reduce((acc, doc) => {
 
 // Sort categories
 const sortedCategories = Object.keys(docsByCategory).sort((a, b) => {
-  if (a === 'Getting Started') return -1;
-  if (b === 'Getting Started') return 1;
+  if (a === "Getting Started") return -1;
+  if (b === "Getting Started") return 1;
   return a.localeCompare(b);
 });
 
@@ -30,82 +29,89 @@ for (const category in docsByCategory) {
 }
 
 // Prepare search data
-const searchData = allDocs.map(doc => ({
+const searchData = allDocs.map((doc) => ({
   title: doc.data.title,
   category: doc.data.category,
   slug: doc.slug,
-  content: doc.body
+  content: doc.body,
 }));
 ---
 
 <Layout title={frontmatter.title}>
-  <header class="bg-gray-800 text-white">
-      <Navbar />
+  <header class="text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white">
+    <Navbar />
   </header>
-  <div class="flex flex-col min-h-screen max-w-7xl mx-auto">
-
+  <div class="flex flex-col min-h-screen mx-auto max-w-7xl">
     <!-- Navbar -->
-    <nav class="bg-gray-200 dark:bg-gray-700 shadow-md">
-          
-          <div class="flex items-center justify-center">
-            <button id="sidebar-toggle" class="flex flex-row gap-1 md:hidden px-4 py-2 text-gray-700 dark:text-gray-50 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-cyan-800">
-              <span class="sr-only">Open sidebar</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-              </svg>
-              Cari Dokumentasi
-            </button>
-          </div>
+    <nav class="bg-gray-200 shadow-md dark:bg-gray-700">
+      <div class="flex items-center justify-center">
+        <button
+          id="sidebar-toggle"
+          class="flex flex-row gap-1 px-4 py-2 text-gray-700 md:hidden dark:text-gray-50 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-cyan-800"
+        >
+          <span class="sr-only">Open sidebar</span>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+            ></path>
+          </svg>
+          Cari Dokumentasi
+        </button>
+      </div>
     </nav>
 
-    <div class="flex-grow flex overflow-hidden">
+    <div class="flex flex-grow overflow-hidden">
       <!-- Sidebar -->
-      <aside id="sidebar" class="w-64 bg-gray-50 dark:bg-gray-900 overflow-y-auto border-r border-gray-200 dark:border-gray-800  md:block hidden py-6">
+      <aside id="sidebar" class="hidden w-64 py-6 overflow-y-auto border-r border-gray-200 bg-gray-50 dark:bg-gray-900 dark:border-gray-800 md:block">
         <div class="p-4">
           <h2 class="text-lg font-bold text-gray-900 dark:text-gray-50">Documentation</h2>
-          
+
           <!-- Search input -->
           <div class="mt-4">
-            <input 
-              type="text" 
-              id="search-input" 
-              placeholder="Search docs..." 
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search docs..."
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
+            />
           </div>
 
           <!-- Search results -->
-          <div id="search-results" class="mt-4 hidden">
-            <h3 class="text-sm font-medium text-gray-700 dark:text-gray-50 uppercase">Search Results</h3>
+          <div id="search-results" class="hidden mt-4">
+            <h3 class="text-sm font-medium text-gray-700 uppercase dark:text-gray-50">Search Results</h3>
             <ul id="search-results-list" class="mt-2"></ul>
           </div>
 
           <!-- Regular navigation -->
           <nav id="regular-nav" class="mt-4">
-            {sortedCategories.map((category) => (
-              <div class="mb-4">
-                <h3 class="mb-2 text-base font-bold text-gray-700 dark:text-gray-50">{category}</h3>
-                <ul>
-                  {docsByCategory[category].map((doc) => (
-                    <li>
-                      <a
-                        href={`/docs/${doc.slug}`}
-                        class={`block py-2 px-4 text-sm ${slug === doc.slug ? 'text-cyan-700  bg-cyan-100 dark:bg-cyan-200 rounded-lg' : 'text-gray-800 dark:text-gray-50 hover:bg-cyan-100 dark:hover:bg-cyan-400 dark:hover:text-gray-700 rounded-lg'}`}
-                      >
-                        {doc.data.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {
+              sortedCategories.map((category) => (
+                <div class="mb-4">
+                  <h3 class="mb-2 text-base font-bold text-gray-700 dark:text-gray-50">{category}</h3>
+                  <ul>
+                    {docsByCategory[category].map((doc) => (
+                      <li>
+                        <a
+                          href={`/docs/${doc.slug}`}
+                          class={`block py-2 px-4 text-sm ${slug === doc.slug ? "text-cyan-700  bg-cyan-100 dark:bg-cyan-200 rounded-lg" : "text-gray-800 dark:text-gray-50 hover:bg-cyan-100 dark:hover:bg-cyan-400 dark:hover:text-gray-700 rounded-lg"}`}
+                        >
+                          {doc.data.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+            }
           </nav>
         </div>
       </aside>
 
       <!-- Main content -->
-      <main class="flex-1 p-8 overflow-y-auto py-6">
-        <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-50 mb-4">{frontmatter.title}</h1>
+      <main class="flex-1 p-8 py-6 overflow-y-auto">
+        <h1 class="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-50">{frontmatter.title}</h1>
         <div class="prose dark:prose-invert max-w-none">
           <slot />
         </div>
@@ -114,73 +120,72 @@ const searchData = allDocs.map(doc => ({
   </div>
 
   <script define:vars={{ searchData }}>
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.getElementById('search-results');
-    const searchResultsList = document.getElementById('search-results-list');
-    const regularNav = document.getElementById('regular-nav');
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
+    const searchInput = document.getElementById("search-input");
+    const searchResults = document.getElementById("search-results");
+    const searchResultsList = document.getElementById("search-results-list");
+    const regularNav = document.getElementById("regular-nav");
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+    const sidebar = document.getElementById("sidebar");
 
     function performSearch(query) {
-      const results = searchData.filter(item => 
-        item.title.toLowerCase().includes(query.toLowerCase()) ||
-        item.content.toLowerCase().includes(query.toLowerCase())
+      const results = searchData.filter(
+        (item) => item.title.toLowerCase().includes(query.toLowerCase()) || item.content.toLowerCase().includes(query.toLowerCase())
       );
 
-      searchResultsList.innerHTML = '';
+      searchResultsList.innerHTML = "";
 
       if (results.length > 0) {
-        results.forEach(result => {
-          const li = document.createElement('li');
-          const a = document.createElement('a');
+        results.forEach((result) => {
+          const li = document.createElement("li");
+          const a = document.createElement("a");
           a.href = `/docs/${result.slug}`;
           a.textContent = result.title;
-          a.className = 'block py-2 px-4 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg';
+          a.className = "block py-2 px-4 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg";
           li.appendChild(a);
           searchResultsList.appendChild(li);
         });
-        searchResults.classList.remove('hidden');
-        regularNav.classList.add('hidden');
+        searchResults.classList.remove("hidden");
+        regularNav.classList.add("hidden");
       } else {
-        searchResults.classList.add('hidden');
-        regularNav.classList.remove('hidden');
+        searchResults.classList.add("hidden");
+        regularNav.classList.remove("hidden");
       }
     }
 
-    searchInput.addEventListener('input', (e) => {
+    searchInput.addEventListener("input", (e) => {
       const query = e.target.value.trim();
       if (query.length > 2) {
         performSearch(query);
       } else {
-        searchResults.classList.add('hidden');
-        regularNav.classList.remove('hidden');
+        searchResults.classList.add("hidden");
+        regularNav.classList.remove("hidden");
       }
     });
 
-    sidebarToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('hidden');
-      sidebar.classList.toggle('fixed');
-      sidebar.classList.toggle('inset-0');
-      sidebar.classList.toggle('z-40');
+    sidebarToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("hidden");
+      sidebar.classList.toggle("fixed");
+      sidebar.classList.toggle("inset-0");
+      sidebar.classList.toggle("z-40");
     });
 
     // Close sidebar when clicking outside on mobile
-    document.addEventListener('click', (event) => {
+    document.addEventListener("click", (event) => {
       const isClickInsideSidebar = sidebar.contains(event.target);
       const isClickOnToggle = sidebarToggle.contains(event.target);
-      
-      if (!isClickInsideSidebar && !isClickOnToggle && !sidebar.classList.contains('hidden') && window.innerWidth < 768) {
-        sidebar.classList.add('hidden');
-        sidebar.classList.remove('fixed', 'inset-0', 'z-40');
+
+      if (!isClickInsideSidebar && !isClickOnToggle && !sidebar.classList.contains("hidden") && window.innerWidth < 768) {
+        sidebar.classList.add("hidden");
+        sidebar.classList.remove("fixed", "inset-0", "z-40");
       }
     });
 
     // Ensure proper sidebar state on resize
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
       if (window.innerWidth >= 768) {
-        sidebar.classList.remove('hidden', 'fixed', 'inset-0', 'z-40');
+        sidebar.classList.remove("hidden", "fixed", "inset-0", "z-40");
       } else {
-        sidebar.classList.add('hidden');
+        sidebar.classList.add("hidden");
       }
     });
   </script>

@@ -11,6 +11,7 @@ module.exports = {
       lineHeight: {
         "custom-2em": "2em",
         "custom-1em": "1.5em",
+        "custom-headline": "1.3em",
       },
     },
   },

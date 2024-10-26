@@ -74,7 +74,7 @@ const ComparisonTable = () => {
         {/* Table Body */}
         <div
           className={`divide-y divide-gray-200 dark:divide-gray-700 transition-all duration-500 ease-in-out ${
-            !isExpanded ? "min-h-[200px]" : "max-h-[1000px]"
+            !isExpanded ? "min-h-[200px]" : ""
           } overflow-hidden`}
         >
           {visibleFeatures.map((feature, index) => (

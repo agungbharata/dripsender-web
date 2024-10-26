@@ -11,6 +11,7 @@ import CTA from "../components/CTA.astro";
 import HeroDark from "../components/HeroDark.astro";
 import TestimonialSlider from "../components/TestimoniSlider";
 import Solution from "../components/Solution";
+import BottomCTA from "../components/BottomCTA.astro";
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
@@ -29,4 +30,5 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
   <!-- <ChatConversation client:load /> -->
 
   <Solution client:load />
+  <BottomCTA />
 </Layout>

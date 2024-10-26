@@ -28,6 +28,22 @@ const ComparisonTable = () => {
       want: "Bikin Database Tanpa Batas",
       have: "Anda bisa menampung banyak sekali database calon pelanggan atau pelanggan lama Anda tanpa dibatasi jumlahnya",
     },
+    {
+      want: "Auto Follow Up Database",
+      have: "Anda bisa menggunakan Evergreen Campaign untuk melakukan auto follow up hingga closing",
+    },
+    {
+      want: "Bot Auto Response",
+      have: "Bisa setting pesan auto respon pada menu bot yang bisa disesuaikan dengan bisnis anda",
+    },
+    {
+      want: "Tag semua member grup otomatis",
+      have: "Dripsender memberikan fitur yang membuat Anda bisa melakukan tag semua member di grup WA agar pesan anda bisa dilihat oleh member grup",
+    },
+    {
+      want: "Bisa Integrasi Dengan AI",
+      have: "Nah baru nih! Kini Anda bisa mengubah Whatsapp anda dengan AI. Di fitur Drip AI ini, anda bisa juga membuat CS AI dengan menambahkan semua informasi produk anda.",
+    },
   ];
 
   // Initial visible items (2 items)

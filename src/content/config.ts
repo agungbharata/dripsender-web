@@ -1,10 +1,10 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from "astro:content";
 
 const docsCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.string().default('Uncategorized'),
+    category: z.string().default("Uncategorized"),
     order: z.number().optional(),
   }),
 });
@@ -19,7 +19,22 @@ const blogCollection = defineCollection({
   }),
 });
 
+const pluginCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    author: z.string(),
+    thumbnail: z.string().optional(),
+    githubUrl: z.string().optional(),
+    demoUrl: z.string().optional(),
+    tags: z.array(z.string()).optional(),
+    version: z.string().optional(),
+  }),
+});
+
 export const collections = {
-  'docs': docsCollection,
-  'blog': blogCollection,
+  docs: docsCollection,
+  blog: blogCollection,
+  plugin: pluginCollection,
 };

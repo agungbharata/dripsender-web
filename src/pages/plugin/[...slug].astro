@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Navbar from "../../components/Navbar.astro";
+
+export async function getStaticPaths() {
+  const pluginEntries = await getCollection("plugin");
+  return pluginEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const currentUrl = new URL(Astro.request.url);
+const shareUrl = currentUrl.href;
+
+function encodeShareUrl(url: string, text: string) {
+  return encodeURIComponent(`${text} ${url}`);
+}
+---
+
+<Layout title={entry.data.title}>
+  <header class="text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white">
+    <Navbar />
+  </header>
+  <article class="max-w-4xl px-4 py-12 mx-auto sm:px-6 lg:px-8 font-sora">
+    {entry.data.thumbnail && <img src={entry.data.thumbnail} alt={entry.data.title} class="object-cover w-full mb-8 rounded-lg shadow-lg" />}
+    <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-gray-50">
+      {entry.data.title}
+    </h1>
+    <div class="flex items-center mb-4 text-gray-600 dark:text-gray-400">
+      <span>{entry.data.author}</span>
+      <span class="mx-2">•</span>
+      <time datetime={entry.data.pubDate.toISOString()}>
+        {new Date(entry.data.pubDate).toLocaleDateString()}
+      </time>
+      {
+        entry.data.version && (
+          <>
+            <span class="mx-2">•</span>
+            <span>Version {entry.data.version}</span>
+          </>
+        )
+      }
+    </div>
+
+    <div class="flex flex-wrap gap-4 mb-8">
+      {
+        entry.data.githubUrl && (
+          <a
+            href={entry.data.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-white transition duration-300 bg-gray-800 rounded-full hover:bg-gray-900"
+          >
+            View on GitHub
+          </a>
+        )
+      }
+      {
+        entry.data.demoUrl && (
+          <a
+            href={entry.data.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-4 py-2 text-white transition duration-300 bg-cyan-500 rounded-full hover:bg-cyan-600"
+          >
+            Live Demo
+          </a>
+        )
+      }
+    </div>
+
+    {
+      entry.data.tags && (
+        <div class="flex flex-wrap gap-2 mb-8">
+          {entry.data.tags.map((tag) => (
+            <span class="px-3 py-1 text-sm text-cyan-600 bg-cyan-100 rounded-full dark:bg-cyan-900 dark:text-cyan-200">{tag}</span>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="prose dark:prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</Layout>

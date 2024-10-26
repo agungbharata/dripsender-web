@@ -1,0 +1,138 @@
+---
+title: "Integrasi Dripsender Dengan Elementor"
+description: "Plugin Elementor untuk integrasi form dengan Dripsender melalui webhook"
+pubDate: 2024-01-01
+author: "Abu Azka"
+version: "1.1.0"
+tags: ["wordpress", "elementor", "form", "dripsender", "webhook"]
+githubUrl: ""
+demoUrl: ""
+thumbnail: "/plugin/elementor.jpg"
+---
+
+## Pengenalan
+
+Dripsender Elementor Plugin adalah ekstensi kustom untuk Elementor yang memungkinkan Anda membuat formulir interaktif dengan mudah dan mengirimkan
+data ke Dripsender melalui webhook. Plugin ini terdiri dari dua widget utama: Dripsender Input dan Dripsender Button Action.
+
+> Link download plugin Dripsender-Elementor ada di akhir artikel ini.
+
+## Instalasi
+
+1. Unduh file zip plugin Dripsender Elementor.
+2. Di dashboard WordPress Anda, navigasikan ke Plugins > Add New > Upload Plugin.
+3. Pilih file zip yang telah Anda unduh dan klik "Install Now".
+4. Setelah instalasi selesai, klik "Activate Plugin".
+
+## Penggunaan
+
+### Menambahkan Widget
+
+Untuk menambahkan widget Dripsender ke halaman Anda:
+
+1. Edit halaman dengan Elementor.
+2. Cari "dripsender" di panel widget.
+3. Anda akan melihat dua widget: Dripsender Input dan Dripsender Button Action.
+4. Drag and drop widget yang diinginkan ke area edit Anda.
+
+![Widget Dripsender di panel Elementor](/images/plugins/image3.png)
+
+### Mengkonfigurasi Dripsender Input
+
+Setelah menambahkan widget Dripsender Input:
+
+1. Klik widget untuk membuka panel pengaturan.
+2. Di tab Content, Anda dapat mengatur:
+   - Input Type (Text, Textarea, atau Select)
+   - Label
+   - Placeholder
+   - Required (Ya/Tidak)
+3. Di tab Style, Anda dapat menyesuaikan:
+   - Label Size
+   - Label Color
+   - Input Color
+   - Input Background Color
+   - Focus Border Color
+
+![Pengaturan configurasi Dripsender Input](/images/plugins/image2.png)
+![Pengaturan gaya Dripsender Input](/images/plugins/image12.png)
+
+### Mengkonfigurasi Dripsender Button Action
+
+Untuk widget Dripsender Button Action:
+
+1. Klik widget untuk membuka panel pengaturan.
+2. Di tab Content, atur:
+   - Button Text
+   - Webhook URL (URL Dripsender Anda)
+   - Success Modal Title dan Message
+   - Error Modal Title dan Message
+3. Di tab Style, sesuaikan:
+   - Button Alignment
+   - Text Color
+   - Background Color
+4. Jika ingin menggunakan Facebook Pixel, aktifkan di tab Facebook Pixel dan isi detailnya.
+
+![Pengaturan gaya Dripsender Button Action](/images/plugins/image1.png)
+![Pengaturan gaya Dripsender Button Action](/images/plugins/image21.png)
+
+## Contoh Penggunaan
+
+Berikut adalah contoh penggunaan Dripsender Elementor Plugin dengan fokus pada input nama dan nomor telepon:
+
+> **⚠️ PENTING**
+>
+> - Input pertama akan selalu dianggap sebagai "Nama".
+> - Input kedua akan selalu dianggap sebagai "Nomor Telepon" atau "WhatsApp".
+> - Jika label input tidak sesuai dengan ketentuan di atas, sistem akan tetap memperlakukan input pertama sebagai nama dan input kedua sebagai nomor telepon.
+> - Input ketiga dan seterusnya dapat digunakan untuk informasi tambahan sesuai kebutuhan Anda.
+
+### 1. Input Nama
+
+- Atur input type sebagai "Text"
+- Set label sebagai "Nama"
+- Aktifkan opsi "Required"
+
+### 2. Input Nomor Telepon
+
+- Atur input type sebagai "Text"
+- Set label sebagai "Nomor Telepon/WhatsApp"
+- Aktifkan opsi "Required"
+
+### 3. Input Tambahan (Opsional)
+
+- Atur input type sesuai kebutuhan (misalnya "Text" untuk email)
+- Set label sesuai kebutuhan (misalnya "Email")
+
+### 4. Konfigurasi Button Action
+
+- Atur teks tombol menjadi "Submit"
+- Masukkan Webhook URL Dripsender Anda
+- Sesuaikan pesan sukses dan error sesuai kebutuhan
+
+### 5. Finalisasi
+
+- Sesuaikan gaya masing-masing widget sesuai kebutuhan
+- Publish atau update halaman Anda
+
+![Contoh Implementasi](/images/plugins/contoh.png)
+
+## Perilaku Sistem
+
+Sistem Dripsender Elementor Plugin memiliki perilaku khusus terkait dengan dua input pertama:
+
+- Input pertama akan selalu dikirim sebagai parameter "name" ke webhook, terlepas dari label yang Anda berikan.
+- Input kedua akan selalu dikirim sebagai parameter "phone" ke webhook, terlepas dari label yang Anda berikan.
+- Input ketiga dan seterusnya akan dikirim dengan nama parameter sesuai dengan label yang Anda berikan (dalam format lowercase dan underscore untuk spasi : "alamat_email" untuk "Alamat Email").
+
+## Troubleshooting
+
+Jika Anda mengalami masalah dengan plugin:
+
+- Pastikan Elementor terinstal dan diaktifkan.
+- Verifikasi bahwa Webhook URL yang Anda gunakan valid dan aktif.
+- Periksa console browser untuk error JavaScript.
+- Pastikan semua field yang diperlukan telah diisi sebelum mengirimkan form.
+- Jika data tidak terkirim dengan benar, periksa urutan input Anda dan pastikan dua input pertama adalah untuk nama dan nomor telepon.
+
+[![Thumbnail Plugin](/plugin/download.png)](/downloads/dripsender-elementor-1-1-0.zip)

@@ -1,0 +1,205 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import Navbar from "../../components/Navbar.astro";
+
+export async function getStaticPaths({ paginate }) {
+  const plugins = await getCollection("plugin");
+  plugins.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  return paginate(plugins, { pageSize: 6 });
+}
+
+const { page } = Astro.props;
+
+const allPlugins = await getCollection("plugin");
+const searchData = allPlugins.map((plugin) => ({
+  title: plugin.data.title,
+  description: plugin.data.description,
+  slug: plugin.slug,
+  pubDate: plugin.data.pubDate.toISOString().split("T")[0],
+  author: plugin.data.author,
+  tags: plugin.data.tags || [],
+  version: plugin.data.version,
+}));
+---
+
+<Layout title="Plugins">
+  <header class="text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white">
+    <Navbar />
+  </header>
+  <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <h1 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Plugins</h1>
+
+    <!-- Search and filter -->
+    <div class="mb-8 space-y-4">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Search plugins..."
+        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+      />
+      <div id="tag-filters" class="flex flex-wrap gap-2">
+        <!-- Tags will be populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Search results -->
+    <div id="search-results" class="hidden mb-8">
+      <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Search Results</h2>
+      <ul id="search-results-list"></ul>
+    </div>
+
+    <!-- Plugins grid -->
+    <div id="plugins-grid" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {
+        page.data.map((plugin) => (
+          <article class="overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+            <img src={plugin.data.thumbnail || "https://via.placeholder.com/400x200"} alt={plugin.data.title} class="object-cover w-full h-48" />
+            <div class="p-6">
+              <h2 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                <a href={`/plugin/${plugin.slug}`} class="hover:underline">
+                  {plugin.data.title}
+                </a>
+              </h2>
+              {plugin.data.version && (
+                <span class="inline-block px-2 py-1 mb-2 text-sm text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">
+                  v{plugin.data.version}
+                </span>
+              )}
+              <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">{plugin.data.description}</p>
+              {plugin.data.tags && (
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {plugin.data.tags.map((tag) => (
+                    <span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">{tag}</span>
+                  ))}
+                </div>
+              )}
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-500 dark:text-gray-400">{new Date(plugin.data.pubDate).toLocaleDateString()}</span>
+                <a href={`/plugin/${plugin.slug}`} class="text-cyan-600 dark:text-cyan-400 hover:underline">
+                  Learn more
+                </a>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Pagination -->
+    <nav class="flex items-center justify-center mt-8 space-x-4">
+      {
+        page.url.prev ? (
+          <a href={page.url.prev} class="px-3 py-2 text-white rounded-md bg-cyan-500 hover:bg-cyan-600">
+            &larr; Previous
+          </a>
+        ) : (
+          <span class="px-3 py-2 text-gray-500 bg-gray-300 rounded-md cursor-not-allowed">&larr; Previous</span>
+        )
+      }
+      <span class="text-gray-800 dark:text-cyan-200">
+        Page {page.currentPage} of {page.lastPage}
+      </span>
+      {
+        page.url.next ? (
+          <a href={page.url.next} class="px-3 py-2 text-white rounded-md bg-cyan-500 hover:bg-cyan-600">
+            Next &rarr;
+          </a>
+        ) : (
+          <span class="px-3 py-2 text-gray-500 bg-gray-300 rounded-md cursor-not-allowed">Next &rarr;</span>
+        )
+      }
+    </nav>
+  </div>
+
+  <script define:vars={{ searchData }}>
+    const searchInput = document.getElementById("search-input");
+    const searchResults = document.getElementById("search-results");
+    const searchResultsList = document.getElementById("search-results-list");
+    const pluginsGrid = document.getElementById("plugins-grid");
+    const paginationNav = document.querySelector("nav");
+    const tagFiltersContainer = document.getElementById("tag-filters");
+
+    // Get unique tags from all plugins
+    const allTags = [...new Set(searchData.flatMap((item) => item.tags))];
+
+    // Create tag filter buttons
+    allTags.forEach((tag) => {
+      const button = document.createElement("button");
+      button.className =
+        "px-3 py-1 text-sm text-cyan-600 bg-cyan-100 rounded-full dark:bg-cyan-900 dark:text-cyan-200 hover:bg-cyan-200 dark:hover:bg-cyan-800";
+      button.textContent = tag;
+      button.dataset.tag = tag;
+      button.addEventListener("click", () => toggleTagFilter(tag));
+      tagFiltersContainer.appendChild(button);
+    });
+
+    const activeFilters = new Set();
+
+    function toggleTagFilter(tag) {
+      const button = tagFiltersContainer.querySelector(`[data-tag="${tag}"]`);
+      if (activeFilters.has(tag)) {
+        activeFilters.delete(tag);
+        button.classList.remove("bg-cyan-500", "text-white");
+      } else {
+        activeFilters.add(tag);
+        button.classList.add("bg-cyan-500", "text-white");
+      }
+      performSearch(searchInput.value.trim());
+    }
+
+    function performSearch(query) {
+      const results = searchData.filter((item) => {
+        const matchesQuery =
+          query.length <= 2 || item.title.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase());
+
+        const matchesTags = activeFilters.size === 0 || [...activeFilters].every((tag) => item.tags.includes(tag));
+
+        return matchesQuery && matchesTags;
+      });
+
+      searchResultsList.innerHTML = "";
+
+      if (results.length > 0) {
+        results.forEach((result) => {
+          const li = document.createElement("li");
+          li.className = "mb-4 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden";
+          li.innerHTML = `
+            <div class="p-4">
+              <a href="/plugin/${result.slug}" class="text-lg font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">
+                ${result.title}
+              </a>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">${result.description}</p>
+              ${result.version ? `<span class="inline-block px-2 py-1 mt-2 text-sm text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">v${result.version}</span>` : ""}
+              <div class="flex flex-wrap gap-2 mt-2">
+                ${result.tags
+                  .map(
+                    (tag) => `
+                  <span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">${tag}</span>
+                `
+                  )
+                  .join("")}
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.pubDate}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.author}</span>
+              </div>
+            </div>
+          `;
+          searchResultsList.appendChild(li);
+        });
+        searchResults.classList.remove("hidden");
+        pluginsGrid.classList.add("hidden");
+        paginationNav.classList.add("hidden");
+      } else {
+        searchResults.classList.add("hidden");
+        pluginsGrid.classList.remove("hidden");
+        paginationNav.classList.remove("hidden");
+      }
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      performSearch(e.target.value.trim());
+    });
+  </script>
+</Layout>

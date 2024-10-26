@@ -63,11 +63,11 @@ const ComparisonTable = () => {
       <div className="relative overflow-hidden bg-white shadow-lg dark:bg-gray-800 rounded-xl">
         {/* Table Header */}
         <div className="grid grid-cols-3">
-          <div className="p-6 bg-cyan-50 dark:bg-cyan-900">
-            <h3 className="flex items-center gap-2 text-lg font-semibold text-cyan-800 dark:text-cyan-100">Yang Anda Mau </h3>
+          <div className="p-6 bg-cyan-100 dark:bg-cyan-800">
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-cyan-700 dark:text-cyan-100">Yang Anda Mau </h3>
           </div>
-          <div className="col-span-2 p-6 bg-green-50 dark:bg-green-900">
-            <h3 className="flex items-center gap-2 text-lg font-semibold text-green-800 dark:text-green-100">Yang Dripsender Punya</h3>
+          <div className="col-span-2 p-6 bg-cyan-200 dark:bg-cyan-900">
+            <h3 className="flex items-center gap-2 text-lg font-semibold text-cyan-800 dark:text-cyan-100">Yang Dripsender Punya</h3>
           </div>
         </div>
 

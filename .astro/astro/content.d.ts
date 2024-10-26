@@ -156,70 +156,70 @@ declare module 'astro:content' {
   slug: "campaign-with-ai";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "etika-whatsapp-marketing.mdx": {
 	id: "etika-whatsapp-marketing.mdx";
   slug: "etika-whatsapp-marketing";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "evergreen-campaign.mdx": {
 	id: "evergreen-campaign.mdx";
   slug: "evergreen-campaign";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "membangun-daftar-kontak.mdx": {
 	id: "membangun-daftar-kontak.mdx";
   slug: "membangun-daftar-kontak";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "parameter-sukses-campaign.mdx": {
 	id: "parameter-sukses-campaign.mdx";
   slug: "parameter-sukses-campaign";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "pesan-whatsapp-marketing.mdx": {
 	id: "pesan-whatsapp-marketing.mdx";
   slug: "pesan-whatsapp-marketing";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "rahasia-list-building.mdx": {
 	id: "rahasia-list-building.mdx";
   slug: "rahasia-list-building";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "strategi-warming-up-nomor-whatsapp-baru.mdx": {
 	id: "strategi-warming-up-nomor-whatsapp-baru.mdx";
   slug: "strategi-warming-up-nomor-whatsapp-baru";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "strategi-whatsapp-marketing.mdx": {
 	id: "strategi-whatsapp-marketing.mdx";
   slug: "strategi-whatsapp-marketing";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 "whatsapp-business-api.mdx": {
 	id: "whatsapp-business-api.mdx";
   slug: "whatsapp-business-api";
   body: string;
   collection: "blog";
-  data: any
+  data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
 };
 "docs": {
@@ -228,112 +228,112 @@ declare module 'astro:content' {
   slug: "add-list";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "add-new-database.mdx": {
 	id: "add-new-database.mdx";
   slug: "add-new-database";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "bot.mdx": {
 	id: "bot.mdx";
   slug: "bot";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "campaign.mdx": {
 	id: "campaign.mdx";
   slug: "campaign";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "chatgpt.mdx": {
 	id: "chatgpt.mdx";
   slug: "chatgpt";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "connecting-whatsapp.mdx": {
 	id: "connecting-whatsapp.mdx";
   slug: "connecting-whatsapp";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "create-bot.mdx": {
 	id: "create-bot.mdx";
   slug: "create-bot";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "export-database.mdx": {
 	id: "export-database.mdx";
   slug: "export-database";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "import-csv.mdx": {
 	id: "import-csv.mdx";
   slug: "import-csv";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "include-bot.mdx": {
 	id: "include-bot.mdx";
   slug: "include-bot";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "introduction.mdx": {
 	id: "introduction.mdx";
   slug: "introduction";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "remove-whatsapp.mdx": {
 	id: "remove-whatsapp.mdx";
   slug: "remove-whatsapp";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "team.mdx": {
 	id: "team.mdx";
   slug: "team";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "term-of-service.mdx": {
 	id: "term-of-service.mdx";
   slug: "term-of-service";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "trigger.mdx": {
 	id: "trigger.mdx";
   slug: "trigger";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 "wtc.mdx": {
 	id: "wtc.mdx";
   slug: "wtc";
   body: string;
   collection: "docs";
-  data: any
+  data: InferEntrySchema<"docs">
 } & { render(): Render[".mdx"] };
 };
 "plugin": {
@@ -342,14 +342,14 @@ declare module 'astro:content' {
   slug: "elementor";
   body: string;
   collection: "plugin";
-  data: any
+  data: InferEntrySchema<"plugin">
 } & { render(): Render[".mdx"] };
 "sejoli.mdx": {
 	id: "sejoli.mdx";
   slug: "sejoli";
   body: string;
   collection: "plugin";
-  data: any
+  data: InferEntrySchema<"plugin">
 } & { render(): Render[".mdx"] };
 };
 
@@ -361,5 +361,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("./../../src/content/config.js");
 }

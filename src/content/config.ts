@@ -6,6 +6,8 @@ const docsCollection = defineCollection({
     description: z.string(),
     category: z.string().default("Uncategorized"),
     order: z.number().optional(),
+    isDefault: z.boolean().optional().default(false), // Tambahkan ini untuk menandai dokumen default
+    draft: z.boolean().optional().default(false),
   }),
 });
 

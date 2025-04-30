@@ -9,7 +9,25 @@ export async function getStaticPaths({ paginate }) {
   return paginate(posts, { pageSize: 6 });
 }
 
-const { page } = Astro.props;
+// Definisikan tipe untuk objek pagination
+interface PaginationProps {
+  page: {
+    data: any[];
+    start: number;
+    end: number;
+    size: number;
+    total: number;
+    currentPage: number;
+    lastPage: number;
+    url: {
+      current: string;
+      prev: string | undefined;
+      next: string | undefined;
+    }
+  }
+}
+
+const { page } = Astro.props as PaginationProps;
 
 const allPosts = await getCollection("blog");
 const searchData = allPosts.map((post) => ({
@@ -19,9 +37,18 @@ const searchData = allPosts.map((post) => ({
   pubDate: post.data.pubDate.toISOString().split("T")[0],
   author: post.data.author,
 }));
+
+const currentUrl = new URL(Astro.request.url);
+const canonicalURL = currentUrl.href;
+const pageTitle = page.currentPage === 1 ? "Blog" : `Blog - Page ${page.currentPage}`;
+const pageDescription = "Artikel terbaru tentang WhatsApp Marketing, automation, dan strategi bisnis digital dari DripSender";
 ---
 
-<Layout title="Blog">
+<Layout 
+  title={pageTitle} 
+  description={pageDescription}
+  url={canonicalURL}
+>
   <header class="text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white">
     <Navbar />
   </header>

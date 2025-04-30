@@ -11,6 +11,9 @@ export interface Props {
   url?: string;
 }
 
+// Gunakan domain produksi untuk URL gambar
+const PRODUCTION_DOMAIN = "https://dripsender.id";
+
 const { 
   title, 
   description = "WhatsApp Marketing Automation untuk Bisnis Anda. Kirim pesan masal, automated campaign, database management, chat AI, dan lebih banyak lagi!", 
@@ -18,8 +21,15 @@ const {
   url = Astro.url.href
 } = Astro.props;
 
-const siteUrl = Astro.url.origin;
-const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+// Pastikan URL gambar selalu menggunakan domain produksi
+const fullImageUrl = image.startsWith('http') 
+  ? image 
+  : `${PRODUCTION_DOMAIN}${image.startsWith('/') ? '' : '/'}${image}`;
+
+// URL lengkap produksi untuk halaman ini
+const canonicalUrl = url.includes('localhost') 
+  ? `${PRODUCTION_DOMAIN}${new URL(url).pathname}` 
+  : url;
 ---
 
 <!doctype html>
@@ -37,7 +47,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImageUrl} />
@@ -51,7 +61,7 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={url} />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={fullImageUrl} />

@@ -41,6 +41,13 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={fullImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="DripSender" />
+    
+    <!-- Untuk WhatsApp -->
+    <meta property="og:image:alt" content={title} />
+    <meta itemprop="image" content={fullImageUrl} />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />

@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator" content="Astro v4.16.7"><title>Plugins</title><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&family=Sora&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/_slug_.MTgcmR0h.css"><script type="module">(localStorage.getItem("darkMode")==="true"||!("darkMode"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.documentElement.classList.add("dark");const d=document.getElementById("dark-mode-toggle");function t(e){e?(document.documentElement.classList.add("dark"),localStorage.setItem("darkMode","true")):(document.documentElement.classList.remove("dark"),localStorage.setItem("darkMode","false"))}(localStorage.getItem("darkMode")==="true"||!("darkMode"in localStorage)&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&t(!0);d.addEventListener("click",()=>{const e=document.documentElement.classList.toggle("dark");t(e)});
+</script>
+<script type="module" src="/_astro/page.BA34ORVw.js"></script></head> <body class="w-full bg-gray-50 dark:bg-gray-900"> <main class="mx-auto">  <header class="text-gray-800 bg-gray-100 dark:bg-gray-800 dark:text-white"> <nav class="w-full py-4 mx-auto bg-transparent" x-data="{ isOpen: false }"> <div class="px-3 mx-auto max-w-7xl"> <div class="flex justify-between"> <div class="flex justify-between w-full space-x-7"> <div> <!-- Website Logo --> <a href="/" class="flex items-center px-2 py-4"> <img src="/logomark.png" alt="Logo" class="w-8 h-8 mr-2 sm:w-10 sm:h-10"> <span class="text-xl font-semibold text-gray-700 font-sora dark:text-gray-50 sm:text-2xl">Dripsender</span> </a> </div> <!-- Primary Navbar items --> <div class="items-center hidden gap-8 space-x-1 md:flex"> <a href="/" class="px-2 py-4 font-semibold text-gray-700 transition duration-300 dark:text-gray-50 hover:text-cyan-500 dark:hover:text-cyan-400">Home</a> <a href="/pricing" class="px-2 py-4 font-semibold text-gray-700 transition duration-300 dark:text-gray-50 hover:text-cyan-500 dark:hover:text-cyan-400">Pricing</a> <a href="/blog/1" class="px-2 py-4 font-semibold text-gray-700 transition duration-300 dark:text-gray-50 hover:text-cyan-500 dark:hover:text-cyan-400">Blog</a> <a href="/docs" class="px-2 py-4 font-semibold text-gray-700 transition duration-300 dark:text-gray-50 hover:text-cyan-500 dark:hover:text-cyan-400">Docs</a> <a href="/plugin/1" class="px-2 py-4 font-semibold text-gray-700 transition duration-300 dark:text-gray-50 hover:text-cyan-500 dark:hover:text-cyan-400">Plugin</a> </div> <!-- Secondary Navbar items --> <div class="items-center hidden space-x-3 md:flex"> <a href="https://portal.dripsender.id/login" class="py-2 px-3.5 text-base text-white bg-cyan-500 rounded hover:bg-cyan-400 transition duration-300">Login ->
+</a> </div> </div> <!-- Mobile menu button --> <div class="flex items-center md:hidden"> <button class="outline-none mobile-menu-button" @click="isOpen = !isOpen"> <svg class="w-6 h-6 text-gray-700 dark:text-gray-50 hover:text-cyan-500" x-show="!isOpen" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"> <path d="M4 6h16M4 12h16M4 18h16"></path> </svg> <svg class="w-6 h-6 text-gray-700 dark:text-gray-50 hover:text-cyan-500" x-show="isOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path> </svg> </button> </div> </div> </div> <!-- Mobile Menu --> <div class="items-center justify-center p-8 m-4 border border-gray-300 rounded-md shadow-sm dark:border-cyan-700 bg-gray-50 dark:bg-cyan-900 md:hidden" x-show="isOpen" x-transition:enter="transition ease-out duration-100 transform" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75 transform" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"> <a href="/" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Home</a> <a href="/pricing" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Pricing</a> <a href="/blog/1" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Blog</a> <a href="/docs" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Docs</a> <a href="/plugin/1" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Plugin</a> <a href="https://portal.dripsender.id/login" class="block px-4 py-2 text-sm text-center text-gray-700 transition duration-300 border-b border-gray-200 dark:border-cyan-800 dark:text-gray-50 hover:bg-cyan-500 hover:text-white">Login</a> </div> </nav> </header> <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8"> <h1 class="mb-8 text-3xl font-bold text-gray-900 dark:text-white">Plugins</h1> <!-- Search and filter --> <div class="mb-8 space-y-4"> <input type="text" id="search-input" placeholder="Search plugins..." class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"> <div id="tag-filters" class="flex flex-wrap gap-2"> <!-- Tags will be populated by JavaScript --> </div> </div> <!-- Search results --> <div id="search-results" class="hidden mb-8"> <h2 class="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Search Results</h2> <ul id="search-results-list"></ul> </div> <!-- Plugins grid --> <div id="plugins-grid" class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"> <article class="overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"> <img src="/plugin/elementor.jpg" alt="Integrasi Dripsender Dengan Elementor" class="object-cover w-full h-48"> <div class="p-6"> <h2 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white"> <a href="/plugin/elementor" class="hover:underline"> Integrasi Dripsender Dengan Elementor </a> </h2> <span class="inline-block px-2 py-1 mb-2 text-sm text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">
+v1.1.0 </span> <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">Plugin Elementor untuk integrasi form dengan Dripsender melalui webhook</p> <div class="flex flex-wrap gap-2 mb-4"> <span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">wordpress</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">elementor</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">form</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">dripsender</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">webhook</span> </div> <div class="flex items-center justify-between"> <span class="text-sm text-gray-500 dark:text-gray-400">1/1/2024</span> <a href="/plugin/elementor" class="text-cyan-600 dark:text-cyan-400 hover:underline">
+Learn more
+</a> </div> </div> </article><article class="overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"> <img src="/plugin/sejoli.jpg" alt="Dripsender Sejoli Plugin" class="object-cover w-full h-48"> <div class="p-6"> <h2 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white"> <a href="/plugin/sejoli" class="hover:underline"> Dripsender Sejoli Plugin </a> </h2> <span class="inline-block px-2 py-1 mb-2 text-sm text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">
+v1.0.0 </span> <p class="mb-4 text-sm text-gray-600 dark:text-gray-300">Plugin integrasi notifikasi Sejoli dengan Dripsender.id untuk pengiriman pesan WhatsApp otomatis</p> <div class="flex flex-wrap gap-2 mb-4"> <span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">wordpress</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">sejoli</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">dripsender</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">whatsapp</span><span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">notification</span> </div> <div class="flex items-center justify-between"> <span class="text-sm text-gray-500 dark:text-gray-400">1/1/2024</span> <a href="/plugin/sejoli" class="text-cyan-600 dark:text-cyan-400 hover:underline">
+Learn more
+</a> </div> </div> </article> </div> <!-- Pagination --> <nav class="flex items-center justify-center mt-8 space-x-4"> <span class="px-3 py-2 text-gray-500 bg-gray-300 rounded-md cursor-not-allowed">&larr; Previous</span> <span class="text-gray-800 dark:text-cyan-200">
+Page 1 of 1 </span> <span class="px-3 py-2 text-gray-500 bg-gray-300 rounded-md cursor-not-allowed">Next &rarr;</span> </nav> </div> <script>(function(){const searchData = [{"title":"Integrasi Dripsender Dengan Elementor","description":"Plugin Elementor untuk integrasi form dengan Dripsender melalui webhook","slug":"elementor","pubDate":"2024-01-01","author":"Agung Bharata","tags":["wordpress","elementor","form","dripsender","webhook"],"version":"1.1.0"},{"title":"Dripsender Sejoli Plugin","description":"Plugin integrasi notifikasi Sejoli dengan Dripsender.id untuk pengiriman pesan WhatsApp otomatis","slug":"sejoli","pubDate":"2024-01-01","author":"Agung Bharata","tags":["wordpress","sejoli","dripsender","whatsapp","notification"],"version":"1.0.0"}];
+
+    const searchInput = document.getElementById("search-input");
+    const searchResults = document.getElementById("search-results");
+    const searchResultsList = document.getElementById("search-results-list");
+    const pluginsGrid = document.getElementById("plugins-grid");
+    const paginationNav = document.querySelector("nav");
+    const tagFiltersContainer = document.getElementById("tag-filters");
+
+    // Get unique tags from all plugins
+    const allTags = [...new Set(searchData.flatMap((item) => item.tags))];
+
+    // Create tag filter buttons
+    allTags.forEach((tag) => {
+      const button = document.createElement("button");
+      button.className =
+        "px-3 py-1 text-sm text-cyan-600 bg-cyan-100 rounded-full dark:bg-cyan-900 dark:text-cyan-200 hover:bg-cyan-200 dark:hover:bg-cyan-800";
+      button.textContent = tag;
+      button.dataset.tag = tag;
+      button.addEventListener("click", () => toggleTagFilter(tag));
+      tagFiltersContainer.appendChild(button);
+    });
+
+    const activeFilters = new Set();
+
+    function toggleTagFilter(tag) {
+      const button = tagFiltersContainer.querySelector(`[data-tag="${tag}"]`);
+      if (activeFilters.has(tag)) {
+        activeFilters.delete(tag);
+        button.classList.remove("bg-cyan-500", "text-white");
+      } else {
+        activeFilters.add(tag);
+        button.classList.add("bg-cyan-500", "text-white");
+      }
+      performSearch(searchInput.value.trim());
+    }
+
+    function performSearch(query) {
+      const results = searchData.filter((item) => {
+        const matchesQuery =
+          query.length <= 2 || item.title.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase());
+
+        const matchesTags = activeFilters.size === 0 || [...activeFilters].every((tag) => item.tags.includes(tag));
+
+        return matchesQuery && matchesTags;
+      });
+
+      searchResultsList.innerHTML = "";
+
+      if (results.length > 0) {
+        results.forEach((result) => {
+          const li = document.createElement("li");
+          li.className = "mb-4 bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden";
+          li.innerHTML = `
+            <div class="p-4">
+              <a href="/plugin/${result.slug}" class="text-lg font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">
+                ${result.title}
+              </a>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">${result.description}</p>
+              ${result.version ? `<span class="inline-block px-2 py-1 mt-2 text-sm text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">v${result.version}</span>` : ""}
+              <div class="flex flex-wrap gap-2 mt-2">
+                ${result.tags
+                  .map(
+                    (tag) => `
+                  <span class="px-2 py-1 text-xs text-cyan-600 bg-cyan-100 rounded dark:bg-cyan-900 dark:text-cyan-200">${tag}</span>
+                `
+                  )
+                  .join("")}
+              </div>
+              <div class="flex items-center justify-between mt-2">
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.pubDate}</span>
+                <span class="text-sm text-gray-500 dark:text-gray-400">${result.author}</span>
+              </div>
+            </div>
+          `;
+          searchResultsList.appendChild(li);
+        });
+        searchResults.classList.remove("hidden");
+        pluginsGrid.classList.add("hidden");
+        paginationNav.classList.add("hidden");
+      } else {
+        searchResults.classList.add("hidden");
+        pluginsGrid.classList.remove("hidden");
+        paginationNav.classList.remove("hidden");
+      }
+    }
+
+    searchInput.addEventListener("input", (e) => {
+      performSearch(e.target.value.trim());
+    });
+  })();</script>  <button id="dark-mode-toggle" class="fixed bottom-5 right-5 bg-gray-200 dark:bg-cyan-500 text-cyan-800 dark:text-white p-2 rounded-full shadow-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200" aria-label="Toggle dark mode"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path> </svg> </button>   </main> <footer class="bg-white dark:bg-gray-800 py-4"> <div class="max-w-7xl mx-auto px-4 py-10"> <div class="flex flex-col md:flex-row justify-between items-center"> <div class="mb-6 md:mb-0"> <a href="/" class="flex items-center"> <img src="/logomark.png" class="h-8 mr-3" alt="Dripsender"> <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dripsender</span> </a> </div> <div class="mb-6 md:mb-0 text-center md:text-left"> <h2 class="text-sm font-semibold text-gray-900 uppercase dark:text-white mb-2">Disclaimer</h2> <p class="text-gray-600 dark:text-gray-300 max-w-xs text-sm font-thin">
+Dripsender is in no way affiliated with WhatsApp. Use at your own discretion. Do not spam people with this
+</p> </div> <div class="flex mt-4 space-x-6 sm:justify-center md:mt-0"> <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg> <span class="sr-only">Facebook page</span> </a> <a href="#" class="text-gray-400 hover:text-gray-900 dark:hover:text-white"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg> <span class="sr-only">Twitter page</span> </a> </div> </div> <hr class="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8"> <div class="sm:flex sm:items-center sm:justify-between text-center"> <span class="text-sm text-gray-500 text-center dark:text-gray-400">© 2024 <a href="https://dripsender.com" class="hover:underline">PT. Drip Rintisan Inovasi Perkasa</a> </span> </div> </div> </footer> </body></html>

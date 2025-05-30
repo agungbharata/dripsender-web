@@ -165,6 +165,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".mdx"] };
+"dripsender-mei-recap.mdx": {
+	id: "dripsender-mei-recap.mdx";
+  slug: "dripsender-mei-recap";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".mdx"] };
 "etika-whatsapp-marketing.mdx": {
 	id: "etika-whatsapp-marketing.mdx";
   slug: "etika-whatsapp-marketing";

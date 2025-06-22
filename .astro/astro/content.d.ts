@@ -358,6 +358,13 @@ declare module 'astro:content' {
   collection: "plugin";
   data: InferEntrySchema<"plugin">
 } & { render(): Render[".mdx"] };
+"ninjaform.mdx": {
+	id: "ninjaform.mdx";
+  slug: "ninjaform";
+  body: string;
+  collection: "plugin";
+  data: InferEntrySchema<"plugin">
+} & { render(): Render[".mdx"] };
 "sejoli.mdx": {
 	id: "sejoli.mdx";
   slug: "sejoli";

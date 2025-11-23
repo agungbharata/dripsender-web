@@ -3,16 +3,34 @@
       <h2 class="text-3xl font-extrabold dark:text-gray-50 text-gray-700 tracking-tighter text-center lg:text-6xl">Harga Terbaik di Kelasnya</h2>
       <p class="mt-4 max-w-2xl text-xl dark:text-gray-50 text-gray-700 text-center mx-auto">Pilih harga terbaik sesuai dengan kebutuhan bisnis anda</p>
   
-      <div class="mt-16 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-4 md:grid md:grid-cols-2 md:gap-x-2 lg:gap-x-4">
+      <!-- Pricing Toggle Switch -->
+      <div class="mt-12 flex justify-center items-center">
+        <div class="relative inline-flex items-center bg-gray-200 dark:bg-gray-700 rounded-full p-1">
+          <button
+            id="monthly-btn"
+            class="relative px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ease-in-out bg-cyan-500 text-white shadow-md z-10"
+          >
+            Bulanan
+          </button>
+          <button
+            id="yearly-btn"
+            class="relative px-6 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 ease-in-out text-gray-700 dark:text-gray-300"
+          >
+            Tahunan
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-12 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 md:grid md:grid-cols-1 md:gap-x-2 lg:gap-x-8">
         <div class="relative p-8 bg-white dark:bg-gray-800 border border-gray dark:border-gray-700 rounded-2xl shadow-sm flex flex-col text-center">
           <div class="flex-1 items-center">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">Paket 1 Whatsapp</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">Paket 1 WhatsApp</h3>
             <p class="mt-4 text-gray-900 dark:text-white items-center mx-auto inline-flex">
               <span class="ml-1 text-lg font-normal">Rp</span>
-              <span class="text-5xl font-extrabold tracking-tight">99k</span>
-              <span class="ml-1 text-lg font-normal">/month</span>
+              <span id="price-1" class="text-5xl font-extrabold tracking-tight" data-monthly="99k" data-yearly="799k">99k</span>
+              <span id="period-1" class="ml-1 text-lg font-normal">/bulan</span>
             </p>
-            <p class="mt-3 text-red-600 dark:text-cyan-300 text-sm border-b-2 border-gray-100 pb-5">Tidak Ada Diskon</p>
+            <p id="savings-1" class="mt-3 text-center text-sm border-b-2 border-gray-100 dark:border-gray-700 pb-5 h-8"></p>
   
             <!-- Feature list -->
             <ul role="list" class="mt-6 space-y-6">
@@ -115,15 +133,20 @@
           >
         </div>
   
-        <div class="relative p-8 bg-white dark:bg-gray-800 border border-gray dark:border-gray-700 rounded-2xl shadow-sm flex flex-col text-center">
+        <div class="relative p-8 bg-white dark:bg-gray-800 border-2 border-cyan-500 dark:border-cyan-400 rounded-2xl shadow-lg flex flex-col text-center">
+          <p
+            class="inline-flex mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 py-1.5 px-4 bg-cyan-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white"
+          >
+            Most popular
+          </p>
           <div class="flex-1 items-center">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">Paket 5 Whatsapp</h3>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">Paket 3 WhatsApp</h3>
             <p class="mt-4 text-gray-900 dark:text-white items-center mx-auto inline-flex">
               <span class="ml-1 text-lg font-normal">Rp</span>
-              <span class="text-5xl font-extrabold tracking-tight">149k</span>
-              <span class="ml-1 text-lg font-normal">/month</span>
+              <span id="price-2" class="text-5xl font-extrabold tracking-tight text-cyan-600 dark:text-cyan-300" data-monthly="199k" data-yearly="1.999k">199k</span>
+              <span id="period-2" class="ml-1 text-lg font-normal">/bulan</span>
             </p>
-            <p class="mt-3 text-red-600 dark:text-cyan-300 text-sm border-b-2 border-gray-100 pb-5">Hemat Rp346.000</p>
+            <p id="savings-2" class="mt-3 text-center text-sm border-b-2 border-gray-100 dark:border-gray-700 pb-5 h-8"></p>
   
             <!-- Feature list -->
             <ul role="list" class="mt-6 space-y-6">
@@ -139,7 +162,7 @@
                 >
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">5 Akun WA</span>
+                <span class="ml-3 text-gray-500 dark:text-cyan-100">3 Akun WA</span>
               </li>
   
               <li class="flex">
@@ -221,26 +244,20 @@
   
           <a
             href="https://portal.dripsender.id/checkout"
-            class="bg-cyan-50 text-cyan-700 hover:bg-cyan-100 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium"
+            class="bg-cyan-500 text-white hover:bg-cyan-600 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium shadow-md"
             >Daftar Sekarang</a
           >
         </div>
   
         <div class="relative p-8 bg-white dark:bg-gray-800 border border-gray dark:border-gray-700 rounded-2xl shadow-sm flex flex-col text-center">
-          <div class="flex-1">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Paket 1 Whatsapp</h3>
-  
-            <p
-              class="inline-flex mx-auto absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 py-1.5 px-4 bg-cyan-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white"
-            >
-              Most popular
-            </p>
+          <div class="flex-1 items-center">
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white text-center">Paket 5 WhatsApp</h3>
             <p class="mt-4 text-gray-900 dark:text-white items-center mx-auto inline-flex">
               <span class="ml-1 text-lg font-normal">Rp</span>
-              <span class="text-5xl font-extrabold tracking-tight text-cyan-600 dark:text-cyan-300">599k</span>
-              <span class="ml-1 text-lg font-normal">/year</span>
+              <span id="price-3" class="text-5xl font-extrabold tracking-tight" data-monthly="299k" data-yearly="2.999k">299k</span>
+              <span id="period-3" class="ml-1 text-lg font-normal">/bulan</span>
             </p>
-            <p class="mt-3 text-red-600 dark:text-cyan-300 text-sm border-b-2 border-gray-100 pb-5">Hemat Rp589.000</p>
+            <p id="savings-3" class="mt-3 text-center text-sm border-b-2 border-gray-100 dark:border-gray-700 pb-5 h-8"></p>
   
             <!-- Feature list -->
             <ul role="list" class="mt-6 space-y-6">
@@ -257,117 +274,6 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
                 <span class="ml-3 text-gray-500 dark:text-cyan-100">1 Akun WA</span>
-              </li>
-  
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">Unlimited Admin/CS</span>
-              </li>
-  
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">Unlimited Pesan</span>
-              </li>
-  
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">Unlimited Kontak</span>
-              </li>
-  
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">Chat Bot</span>
-              </li>
-  
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">Whatsapp API</span>
-              </li>
-            </ul>
-          </div>
-  
-          <a
-            href="https://portal.dripsender.id/checkout"
-            class="bg-cyan-300 text-gray-900 hover:bg-cyan-400 mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium"
-            >Daftar Sekarang</a
-          >
-        </div>
-  
-        <div class="relative p-8 bg-white dark:bg-gray-800 border border-gray dark:border-gray-700 rounded-2xl shadow-sm flex flex-col text-center">
-          <div class="flex-1 items-center">
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Paket 5 Whatsapp</h3>
-            <p class="mt-4 text-gray-900 dark:text-white items-center mx-auto inline-flex">
-              <span class="ml-1 text-lg font-normal">Rp</span>
-              <span class="text-5xl font-extrabold tracking-tight">999k</span>
-              <span class="ml-1 text-lg font-normal">/year</span>
-            </p>
-            <p class="mt-3 text-red-600 dark:text-cyan-300 text-sm border-b-2 border-gray-100 pb-5">Hemat Rp789.000</p>
-  
-            <!-- Feature list -->
-            <ul role="list" class="mt-6 space-y-6">
-              <li class="flex">
-                <!-- Heroicon name: outline/check -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 text-cyan-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                <span class="ml-3 text-gray-500 dark:text-cyan-100">5 Akun WA</span>
               </li>
   
               <li class="flex">
@@ -469,3 +375,66 @@
       </div>
     </div>
   </section>
+
+  <script>
+    // Pricing toggle functionality
+    const monthlyBtn = document.getElementById('monthly-btn');
+    const yearlyBtn = document.getElementById('yearly-btn');
+    let isYearly = false;
+
+    const pricingData = [
+      { monthly: '99k', yearly: '799k', monthlySavings: '', yearlySavings: 'Hemat Rp389.000' },
+      { monthly: '199k', yearly: '1.999k', monthlySavings: '', yearlySavings: 'Hemat Rp389.000' },
+      { monthly: '299k', yearly: '2.999k', monthlySavings: '', yearlySavings: 'Hemat Rp589.000' }
+    ];
+
+    function updatePricing() {
+      pricingData.forEach((data, index) => {
+        const priceEl = document.getElementById(`price-${index + 1}`);
+        const periodEl = document.getElementById(`period-${index + 1}`);
+        const savingsEl = document.getElementById(`savings-${index + 1}`);
+
+        if (isYearly) {
+          priceEl.textContent = data.yearly;
+          periodEl.textContent = '/tahun';
+          savingsEl.textContent = data.yearlySavings;
+          savingsEl.classList.add('text-green-600', 'dark:text-green-400', 'font-semibold');
+        } else {
+          priceEl.textContent = data.monthly;
+          periodEl.textContent = '/bulan';
+          savingsEl.textContent = data.monthlySavings;
+          savingsEl.classList.remove('text-green-600', 'dark:text-green-400', 'font-semibold');
+        }
+      });
+    }
+
+    function toggleButtons() {
+      if (isYearly) {
+        monthlyBtn.classList.remove('bg-cyan-500', 'text-white', 'shadow-md');
+        monthlyBtn.classList.add('text-gray-700', 'dark:text-gray-300');
+        yearlyBtn.classList.add('bg-cyan-500', 'text-white', 'shadow-md');
+        yearlyBtn.classList.remove('text-gray-700', 'dark:text-gray-300');
+      } else {
+        yearlyBtn.classList.remove('bg-cyan-500', 'text-white', 'shadow-md');
+        yearlyBtn.classList.add('text-gray-700', 'dark:text-gray-300');
+        monthlyBtn.classList.add('bg-cyan-500', 'text-white', 'shadow-md');
+        monthlyBtn.classList.remove('text-gray-700', 'dark:text-gray-300');
+      }
+    }
+
+    monthlyBtn.addEventListener('click', () => {
+      if (isYearly) {
+        isYearly = false;
+        updatePricing();
+        toggleButtons();
+      }
+    });
+
+    yearlyBtn.addEventListener('click', () => {
+      if (!isYearly) {
+        isYearly = true;
+        updatePricing();
+        toggleButtons();
+      }
+    });
+  </script>
